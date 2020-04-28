@@ -1,0 +1,225 @@
+@import url("desktop.css") screen and (min-width:980px);
+@import url("desktop_sm.css") screen and (max-width:979px) and (min-width:801px);
+@import url("tablet.css") screen and (max-width:800px) and (min-width:481px);
+@import url("mobile.css") screen and (max-width:480px);
+
+/*
+navy blue: #0D4168
+light blue: #c7deee
+lightest blue: #E0EFFB
+light orange: #F2E9D7
+*/
+
+html, body {
+	width: 100%;
+	height: 100%;
+	margin: 0px;
+	overflow:hidden;
+}
+
+
+body {
+	background-color:#fff;
+	font-family: "myriad-pro";
+}
+
+
+/*****************************************************************************
+ * Results page facet widget styles
+ * 2016-03-09 mitch@jmitchellsmith.com
+ ****************************************************************************/
+ul.facet-chooser {
+  font-family: "myriad-pro";
+  font-size: 17px;
+  list-style-type: none;
+  display: block;
+  margin: 1em 0px;
+  padding: 0px;
+}
+ul.facet-chooser li {
+  display: inline-block;
+  font-family: "myriad-pro";
+}
+
+ul.facet-chooser li label {
+  margin-left: 20px;
+  font-family: "myriad-pro";
+}
+
+ul.facet-chooser li label>span {
+  /* color: #d74226; */
+  color: #3058C7;
+  font-weight: bold;
+  display: inline-block;
+  visibility: hidden;
+  min-width: 2em;
+
+}
+
+ul.facet-chooser li label:first-child {
+  margin-left: 0px;
+}
+
+ul.facet-chooser li input[type="checkbox"] {
+  display:none;
+}
+
+ul.facet-chooser li label:before {
+  font-family: "myriad-pro";
+  font-weight: 500;
+  background: none;
+  content: "☐ ";
+}
+
+ul.facet-chooser li input[type="checkbox"]:checked + label {
+   background: #ffffb5;
+  /* color: #282561; /*dk blue* /
+     color: #d74226; /*coral* /
+  */
+}
+
+ul.facet-chooser li input[type="checkbox"]:checked + label>span {
+  visibility: visible;
+  overflow: visible;
+}
+
+
+ul.facet-chooser li input[type="checkbox"]:checked + label:before {
+  font-family: "myriad-pro";
+  content: "☑ ";
+  /* color: #282561;  color: #d74226; */
+}
+
+
+
+body#change-notes .notice h1 {
+    text-transform: uppercase;
+    font-family: "myriad-pro";
+    color: #252462;
+    text-shadow: 1px 1px #e0e2e1;
+	font-weight: bold;
+    font-style: italic;
+    margin-left: 20px;
+    margin-bottom: -1.5px;
+    text-decoration: underline;
+    -moz-text-decoration-color: #7c7c7c; /* Code for Firefox */
+    text-decoration-color: #7c7c7c;
+}
+
+body#change-notes h2 {
+	color: #252462;
+	margin-left: 20px;
+	font-family: "sofia-pro";
+	font-size: 18px;
+	color: #252462;
+}
+body#change-notes h3 {
+	color: #252462;
+	margin-left: 20px;
+	font-family: "sofia-pro";
+	margin-bottom: 6px;
+}
+body#change-notes span.leader {
+	width: 150px;
+	display: inline-block;
+	color: #252462;
+}
+
+
+body#change-notes p.change-description {
+	margin-left: 190px;
+	font-family: "expo-serif-pro";
+	font-size: 16px;
+}
+
+
+
+body#change-notes .notice {
+	position: absolute;
+	top: 65px;
+	right: 0px;
+	z-index: 40;
+	transition: left 0.5s;
+
+}
+body#change-notes .notice h1 {
+	font-size: 17px;
+}
+
+
+
+body#change-notes .notice p {
+    font-family: "myriad-pro";
+    font-size: 16px;
+     margin-top: -1px;
+     margin-left: 20px;
+     margin-bottom: -1px;
+     color: #252462;
+}
+
+section.notice {
+    border-bottom: 2px ridge #E0E2E1;
+    border-left: 0px;
+    border-right: 2px;
+    border-bottom-right-radius: 2em;
+    margin-top: -10px;
+    padding-bottom: 10px;
+
+}
+
+div.WordSection1 a {
+	color: #3058c7;
+	}
+
+div.WordSection1 h1 {
+	font-size: 18px;
+	margin-left: 20px;
+	color: #252462;
+	}
+
+	/* article page styles */
+
+	#article-list .content {
+		padding:30px;
+		margin-top:35px;
+	}
+body#article-list h1 {
+	color:#252462;
+	font-family:"sofia-pro";
+	margin-left:20px;
+}
+
+body#article-list .content p {
+	color:#252462;
+	font-family:"sofia-pro";
+	margin-left:20px;
+	font-size:13pt;
+}
+section#article-list .headnote::before {
+	content: "CLE Articles";
+	font-size:18pt;
+}
+section#article-list .headnote::after {
+	content: "These additional resources, from the TexasBarCLE online library and other sources, are provided for further information and research purposes. The articles have not been reviewed for recent developments in the law.";
+  font-size:13pt;
+	font-family:"sofia-pro;"
+}
+
+
+body#article-list .content a {
+	color:#3058c7;
+}
+@media (min-width: 1120px) {
+	.masthead {
+		background-size: auto;
+		background-position: right 10px;
+	}
+}
+
+.chapter_group_nav .reserved a {
+  color: #dddddd;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+}

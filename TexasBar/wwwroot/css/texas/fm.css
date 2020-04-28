@@ -1,0 +1,311 @@
+.chapter_content {
+	font-family: "expo-serif-pro";
+}
+
+.chapter_content p {
+	margin: 0px;
+	text-align: justify;
+}
+
+.chapter_content ul,
+.chapter_content ol {
+	margin: 0 auto;
+}
+div.chapter_content img {
+	max-width: 95%;
+	margin-top: 15px;
+}
+
+
+/* framemaker specific */
+
+
+p.FM_ChapterNumber {
+	text-align:center;
+	margin:0 0 -2pt;
+	font-weight:600;
+	font-size: 23pt;
+    word-spacing: 0.25em;
+    letter-spacing: -0.01em;
+	color: #072135;
+	font-family: sofia-pro;
+}
+
+p.FM_TitleChapter {
+	margin: 0pt;
+	text-align:center;
+	font-size:23pt;
+	font-weight:600;
+	word-spacing: 0.25em;
+	letter-spacing: -0.01em;
+	color: #072135;
+	font-family: sofia-pro;
+	margin-bottom:38px;
+}
+
+p.FM_TitlePart {
+	margin:36pt 0 12pt;
+	text-align:center;
+	font-family: "sofia-pro";
+	font-weight:500;
+	font-size:17pt;
+	word-spacing: 0.25em;
+	text-transform: none;
+    color: #072135;
+}
+
+p.FM_TitleSection {
+	margin: 16pt 0pt 10pt 50.4pt;
+	word-spacing: 0.25em;
+	font-family: "sofia-pro";
+    font-size: 17pt;
+	text-align:left;
+	text-indent:-50.4pt;
+    color: #262130;
+    font-weight: 500;
+    margin-bottom:20px;
+
+}
+p.FM_TitleSection img {
+	height: 17px;
+	margin-left: 4px;
+}
+
+p.FM_TitleSubsection img {
+	height: 17px;
+	margin-left: 4px;
+}
+
+p.FM_TitleSubsection {
+	text-align:left;
+	text-indent:-54pt;
+	margin:16pt 0 10pt 54pt;
+	font-weight:500;
+	font-family:sofia-pro;
+	font-size: 17pt;
+}
+
+p.FM_Body{
+    margin: 0pt 0pt 10pt;
+    text-align: left;
+    word-spacing: 0.25em;
+    font-size: 11pt;
+    letter-spacing: -0.01em;
+    font-family: "expo-serif-pro";
+    line-height: 145%;
+    color: #072135;
+}
+
+p.FM_BodyQuote {
+	margin:0 24pt 7pt;
+	font-size:11pt;
+}
+
+p.FM_BodyReserved {
+	text-align:center;
+	margin:3pt 0 0;
+	font-style:italic;
+	font-size:11pt;
+}
+
+p.FM_ReservedCounter {
+	text-align:left;
+	text-indent:-25.2pt;
+	margin:0 0 0 25.2pt;
+	font-size:11pt;
+}
+
+p.FM_comment {
+	margin:12pt 0 10pt;
+	font-size:11pt;
+	background-color:#e0e2e1;
+}
+
+p.FM_Practice_Tip_Arial {
+	margin:12pt 0 10pt;
+	font-size:11pt;
+	background-color:#e0e2e1;
+}
+
+p.FM_form_number {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom:15px;
+}
+
+p.FM_form_title {
+	font-size: 22px;
+	text-align: center;
+	margin-bottom:25px;
+}
+
+p.FM_biblio {
+line-height: 1.8em;
+font-size: 16px;
+font-family: "expo-serif-pro";
+margin-bottom: 1em;
+}
+
+p.FM_TitleResources {
+font-size: 17pt;
+font-family: sofia-pro;
+margin: 45px 0px 25px 0px;
+}
+p.FM_BodyResource {
+line-height: 1.4em;
+font-size: 16px;
+font-family: "expo-serif-pro";
+margin-bottom: 1em;
+}
+p.FM_BodyResource a{
+color:#3058c7;
+}
+
+
+/* lists */
+
+p.FM_List_Level1_1,
+p.FM_List_Level1_2 {
+	text-indent:-22.8pt;
+	margin:0 0 6pt 34.8pt;
+	font-size:11pt;
+}
+
+p.FM_List_Level1__a_,
+p.FM_List_Level1__b_ {
+	text-indent:-24pt;
+	margin:0 0 6pt 48pt;
+	font-size:11pt;
+}
+
+p.FM_List_Level2__1_,
+p.FM_List_Level2__2_ {
+	text-indent:-24pt;
+	margin:0 0 6pt 72pt;
+	font-size:11pt;
+}
+.FM_List_Level2_a {
+    margin-left: 48px!important;
+}
+
+.FM_List_Level2_b {
+    margin-left: 48px!important;
+}
+
+span.FMAutoNumber_1 {
+	padding-left:6px!important;
+}
+
+
+/* other */
+p.FM_CaptionLast{
+	text-align:center;
+	margin:0 0 10pt;
+	font-weight:700;
+	font-size:18pt;
+}
+
+p.FM_TitleAppendix{
+	text-align:center;
+	margin:0 0 12pt;
+	font-weight:700;
+	font-size:14pt;
+}
+
+p.FM_Mapping_Table_Title{
+	text-align:left;
+	margin:2pt 0;
+	font-size:14pt;
+}
+
+p.FM_Mapping_Table_Cell{
+	text-align:left;
+	margin:2pt 0;
+}
+
+p.FM_app_note{
+	font-size:11pt;
+	font-style:italic;
+}
+
+p.FM_user_instruction {
+	font-family:myriad-pro;
+	font-size: 11.5pt;
+	line-space:115%;
+	text-align: justify;
+	border: 1px solid black;
+	padding: 8px 4px;
+	margin: 30px 15px;
+}
+
+/* spans */
+
+span.FM_CodeItalic{
+	font-style:italic;
+	color:#3058C7;
+	font-weight:
+}
+span.FM_Code{
+	color:#3058C7;
+}
+
+span.FM_Italic{
+	font-style:italic;
+}
+span.FM_pns{
+	font-size:11pt;
+	color:#3058C7;
+}
+span.FM_bold{
+	font-weight:500;
+	font-size:17pt;
+	font-family:sofia-pro;
+}
+span.FM_Internal{
+	color:#3058C7;
+}
+span.FM_Case_name{
+	font-style:italic;
+}
+span.FM_URL{
+	color:#3058c7;
+	font-weight:400;
+}
+span.FM_Case_cite{
+	font-size:11pt;
+	color:#3058C7;
+}
+
+p.FM_BodyStraddle {
+	font-size:11pt;
+}
+
+/* links */
+
+.FM_Code a {
+	color:#3058c7;
+}
+
+.FM_Case_cite a {
+	color:#3058c7;
+}
+
+.FM_URL a {
+	color:#3058c7;
+}
+
+.FM_pns a {
+	color:#3058c7;
+}
+
+.FM_Hyperlink a {
+color:#3058c7;
+}
+
+.FM_CodeItalic a {
+color:#3058c7;
+}
+
+.FM_Internal a {
+color:#3058c7;
+}

@@ -1,0 +1,171 @@
+﻿@*<!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+    </head>
+    <body>
+        <div>
+            @RenderBody()
+        </div>
+    </body>
+    </html>*@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>: Chapter 3Ownership</title>
+    <script src="//use.typekit.net/cca7dzk.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-26232084-2', 'auto');
+  ga('send', 'pageview');</script>
+    <link href="../css/styles.css" rel="stylesheet">
+    <link href="../css/annotator.min.css" rel="stylesheet">
+    <link href="../css/fm.css" rel="stylesheet">
+    <link rel="shortcut icon" href="../images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon-180x180.png">
+</head>
+
+<body data-manual-id="5">
+    <div class="container">
+
+        <!--Updated to Header Tag, added .box_shadow-->
+        <header class="masthead box_shadow">
+            <!--Added Div for logo thumb-->
+            <div class="tbb_thumb_logo"></div>
+
+            <form class="search_form">
+                <input type="text" id="search_field" name="search" placeholder="search" class="search">
+                <button id="search_btn"><img src="../images/search.png"></button>
+            </form>
+            <a href="#" class="menu"><img src="../images/interface/chapters.png" alt="Main Menu"><span>Main Menu</span></a>
+            <a href="#" class="bookmark"><img src="../images/interface/bookmark.png" alt="Bookmark Page"><span>Bookmark Page</span></a>
+            <a href="http://texasbarbooksonline.com" class="my_account" target="_blank"><img src="../images/interface/account.png" alt="Account Page"><span>My Account</span></a>
+        </header>
+
+        <!--Updated to Aside Tag-->
+        <aside class="sidebar">
+            <div class="close_side"></div>
+            <img class="sidebar_logo" src="../images/interface/TBO-side-logo.jpg">
+            <p><a href="../bookmarks.html">Bookmarks</a></p>
+            <p><a href="../articles.html">CLE Articles</a></p>
+            <p id="changes_doc_nav"><a href="../changes.html">Recent Updates</a></p>
+            <ul class="chapter_group_nav">
+                <li class="current">
+                    <a href="#">Chapters</a><ul>
+                        <li class="">
+                            <a href="../1_Formation_and_Filing_with_Texas_Secretary_of_State/Chapter_1.htm">
+                                1 Formation and Filing with Texas Secretary of State
+                            </a>
+                        </li>
+                        <li class=""><a href="../2_Organization/Chapter_2.htm">2 Organization</a></li>
+                        <li class=""><a href="../3_Ownership/Chapter_3.htm" class="current_page">3 Ownership</a></li>
+                        <li class=""><a href="../4_Agreements/Chapter_4.htm">4 Agreements</a></li>
+                        <li class=""><a href="../5_Conversion/Chapter_5.htm">5 Conversion</a></li>
+                        <li class=""><a href="../6_Corporate_Matters/Chapter_6.htm">6 Corporate Matters</a></li>
+                        <li class=""><a href="../7_Reorganization/Chapter_7.htm">7 Reorganization</a></li>
+                        <li class=""><a href="../8_Termination/Chapter_8.htm">8 Termination</a></li>
+                        <li class="reserved"><a href="../9_-_20_(Reserved)/Chapter_9-20_Reserved.htm">9 - 20 (Reserved)</a></li>
+                        <li class=""><a href="../21_Organizational_Filings/Chapter_21.htm">21 Organizational Filings</a></li>
+                        <li class=""><a href="../22_Company_Agreements/Chapter_22.htm">22 Company Agreements</a></li>
+                        <li class=""><a href="../23_Conversion/Chapter_23.htm">23 Conversion</a></li>
+                        <li class=""><a href="../24_Merger/Chapter_24.htm">24 Merger</a></li>
+                        <li class=""><a href="../25_Termination/Chapter_25.htm">25 Termination</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="sub_sidebar">
+            <div class="header box_shadow">
+                <p class="chapter_number"></p>
+                <!-- Not needed. Design does not include this.
+                <p class="chapter_title">Attorney-Client Relationship and Communications</p>
+                -->
+            </div>
+            <div class="sub_nav_container form">
+                <div class="ctrls_container box_shadow">
+                    <a id="practice_notes_ctrl" class="sub_ctrl" href="#">Practice Notes</a>
+                    <a id="forms_ctrl" class="sub_ctrl" href="#">Forms</a>
+                </div>
+                <ul class="section_nav">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li><a href="#">This chapter only has forms.</a></li>
+                </ul>
+                <ul class="form_nav"><li><a href="../3_Ownership/Form3-1.htm">3-1 [Preformation] Common Stock Subscription</a></li><li><a href="../3_Ownership/Form3-2.htm">3-2 Certificate Representing Ownership Interest</a></li><li><a href="../3_Ownership/Form3-3.htm">3-3 Affidavit of Lost Certificate Representing Ownership Interest</a></li><li><a href="../3_Ownership/Form3-4.htm">3-4 [Name of corporation][year] Stock Incentive Plan</a></li><li><a href="../3_Ownership/Form3-5.htm">3-5 [Name of corporation] Incentive Stock Option Agreement</a></li><li><a href="../3_Ownership/Form3-6.htm">3-6 [Name of corporation] Nonqualified Stock Option Agreement</a></li><li><a href="../3_Ownership/Form3-7.htm">3-7 Warrant Agreement</a></li></ul>
+            </div>
+        </div>
+        <!--FM content Goes here-->
+        <div class="content">
+            <div class="content_nav"> </div>
+            <div class="chapter_content">
+
+
+
+
+
+
+
+
+                <div dir="ltr">
+                    <p dir="ltr" class="FM_TitleChapter" style="font-weight : normal;"><span style="font-size  : 11.0pt; "></span><span class="FM_Bold">Chapter 3<br></span>Ownership</p>
+                    <p dir="ltr" class="FM_Body" style="text-align  : center;"><span class="FM_Italic">Chapter 3 is forms only. Please click the &#x201C;Forms&#x201D; tab at the top of the table of contents panel to see available forms. </span></p>
+                </div>
+                <div dir="ltr">
+                    <p dir="ltr" class="FM_Body"><a name="HT_TMS_C29x1176910"></a>&#xA0;</p>
+                </div>
+
+
+
+
+            </div>
+        </div>
+        <!--End FM content Goes here-->
+        <!--Updated with Footer Tag-->
+        <footer class="footer">
+            <p>Contact Us: 512-427-1499 or <a href="mailto:books@texasbar.com">books@texasbar.com</a> | &#xA9; 2019 State Bar of Texas</p>
+        </footer>
+    </div>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.waypoints.min.js"></script>
+    <script src="../js/annotator.min.js"></script>
+    <script src="../vendor/annotator.store.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/bookmarks.js"></script>
+    <script src="../js/search.js"></script>
+    <script src="../js/changes.js"></script>
+
+
+    <script>window.location.href='../3_Ownership/Form3-1.htm'</script>
+</body>
+</html>

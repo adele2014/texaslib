@@ -1,0 +1,113 @@
+﻿@page
+@model TexasBar.UploadModel
+@{
+    ViewData["Title"] = "Upload";
+}
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-plus"></i>
+            <h2>Upload Page</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="BookValue">Book Name:</label>
+                    <select asp-for="BookValue" class="custom-select">
+                        <option value="TFM">TFM</option>
+                        <option value="TGM">TGM</option>
+                        <option value="TBO">TBO</option>
+                        <option value="TFC">TFC</option>
+                        <option value="TCM">TCM</option>
+                        <option value="TPS">TPS</option>
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Version">Version:</label>
+                    <select asp-for="Version" class="custom-select" asp-items="Model.Options">
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="Upload">Other:</label>
+                    <input type="file" asp-for="Upload" class="form-control">
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="remember"> Remember me</label>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+    <br />
+    <div>
+        <div class="panel-body">
+
+            <div class="table-responsive ">
+                <table id="tbBooks" class="table table-striped datatable  table-bordered">
+                    <thead>
+
+                        <tr>
+                            <th>Id</th>
+                            <th>File Name</th>
+                            <th>Book Value</th>
+                            <th>Version</th>
+                            <th>Status</th>
+                            <th>Upload date</th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+
+                </table>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<Script>
+    window.addEventListener("load", function (event) {
+
+       // $('#tbBooks').DataTable();
+
+          var tblApplicantNew = $('#tbBooks').DataTable({
+            "pageLength": 100,
+            //"ordering": false,
+            "lengthMenu": [[100, 200, 500, 1000, -1], [100, 200, 500, 1000, "All"]],
+            ajax: "/Upload?handler=Books",
+            columns: [
+                { data: "id" },
+               // { data: "uploadedFileName" },
+                {
+                    data: null,
+                    className: "center_columna",
+                    render: function (data, type, row) {
+                        var html = '<a class="editor_edita decorated" href="/bookviewer?bookValue=' + data.bookValue + '&version=' + data.version + '&bookname=' + data.uploadedFileName + '">' + data.uploadedFileName + '</a>';
+                        return html;
+                    }
+                },
+                { data: "bookValue" },
+                { data: "version" },
+                {
+                    data: null,
+                    className: "center_column",
+                   render: function (data, type, row) {
+                      var html = '<input type="checkbox" id="chkSingle" name="chkSingle" value="' + data.isCurrent + '"/>';
+                        return html;
+                    }
+                },
+                { data: "status" }
+
+            ]
+        });
+    });
+
+</Script>
+

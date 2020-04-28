@@ -1,0 +1,84 @@
+﻿@page
+@model TexasBar.ViewerModel
+@{
+    ViewData["Title"] = "Viewer";
+}
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <i class="fa fa-plus"></i>
+            <h2>Uploaded Books</h2>
+
+            <div class="clearfix"></div>
+        </div>
+        <div class="panel-body">
+            <br />
+            <div>
+                <div class="panel-body">
+
+                    <div class="table-responsive ">
+                        <table id="tbBooks" class="table table-striped datatable  table-bordered">
+                            <thead>
+
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Book Value</th>
+                                    <th>Book Name</th>
+                                    <th>Version</th>
+                                    <th>Latest</th>
+                                    <th>Status</th>
+
+
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<Script>
+    window.addEventListener("load", function (event) {
+        
+       // $('#tbBooks').DataTable();
+
+          var tblApplicantNew = $('#tbBooks').DataTable({
+            "pageLength": 100,
+            //"ordering": false,
+            "lengthMenu": [[100, 200, 500, 1000, -1], [100, 200, 500, 1000, "All"]],
+            ajax: "/Viewer?handler=Books",
+            columns: [
+                { data: "id" },
+               // { data: "uploadedFileName" },
+                {
+                    data: null,
+                    className: "center_columna",
+                    render: function (data, type, row) {
+                        var html = '<a class="editor_edita decorated" href="/bookviewer/' + data.bookValue + '/' + data.version + '/' + data.uploadedFileName + '">' + data.uploadedFileName + '</a>';
+                        return html;
+                    }
+                },
+                { data: "bookValue" },
+                { data: "version" },
+                {
+                    data: null,
+                    className: "center_column",
+                   render: function (data, type, row) {
+                      var html = '<input type="checkbox" id="chkSingle" name="chkSingle" value="' + data.isCurrent + '"/>';
+                        return html;
+                    }
+                },
+                { data: "status" }
+              
+            ]
+        });
+    });
+
+</Script>
+
