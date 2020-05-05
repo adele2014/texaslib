@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using TexasBar.Domain.Models;
 using TexasBar.Persistence.Repo;
+using TexasBar.Services;
 
 namespace TexasBar
 {
@@ -23,7 +24,8 @@ namespace TexasBar
 
         public void OnGet()
         {
-
+            //BackgroundTask backT = new BackgroundTask();
+            //backT.CreateBucketTask("online-manuals");
         }
 
         public JsonResult OnGetBooks()

@@ -9,6 +9,7 @@ using Amazon.S3.Model;
 using Amazon.SQS;
 using Amazon.SQS.Model;
 using Amazon.Util;
+using Microsoft.AspNetCore.Http;
 using SharedUtility;
 using TexasBar.Domain.Models;
 using TexasBar.Persistence.Repo;
@@ -31,9 +32,13 @@ namespace TexasBar.Services
         private readonly IRepository<Chapters> repoChapters = null;
         public AmazonActivities(IAmazonS3 client, IAmazonSQS sqsClient)
         {
-            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIAJI5RF4RFXM7U3ELQ", "4GH/cZnUMg9a+Tmwr6EJ5DQOplrduK3gTHYYb2D+");
-            client = new AmazonS3Client(awsCredentials, RegionEndpoint.USEast2);
-            sqsClient = new AmazonSQSClient(awsCredentials, RegionEndpoint.USEast2);
+            var awsCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIAYLUF7W2YAKEGANX6", "hAkuzL67HzHaZtUhFxsGSyGDk5b3pj0tSYh+Ye5");
+           // var awsCredentials = new Amazon.Runtime.BasicAWSCredentials("AKIAJQ4GEIE2H56LA53Q", "xMQJwD/+Dr9cud00ggqapgN5SVYAJM5HIgpdxyG1");
+            var config = new AmazonS3Config
+            { UseHttp = false, RegionEndpoint = RegionEndpoint.USEast1 };
+            client = new AmazonS3Client(awsCredentials, config);
+            //client = new AmazonS3Client(awsCredentials, RegionEndpoint.USEast2);
+            sqsClient = new AmazonSQSClient(awsCredentials, RegionEndpoint.USEast1);
             _client = client;
             _sqsClient = sqsClient;
             uow = new UnitOfWork();
@@ -53,7 +58,7 @@ namespace TexasBar.Services
                 if (await _client.DoesS3BucketExistAsync(bucketName) == false)
                 {
                     var putBucketRequest = new PutBucketRequest() { BucketName = bucketName, UseClientRegion = true };
-                   var w= await _client.PutBucketAsync(putBucketRequest);
+                    var w = await _client.PutBucketAsync(putBucketRequest);
                 }
             }
             catch (AmazonS3Exception awsEx)
@@ -271,15 +276,16 @@ namespace TexasBar.Services
                 GetObjectRequest request = new GetObjectRequest
                 {
                     BucketName = bucketName,
+                   // BucketName = "tboo",
                     Key = keyName
                 };
                 using (GetObjectResponse response = await _client.GetObjectAsync(request))
                 using (Stream responseStream = response.ResponseStream)
                 using (StreamReader reader = new StreamReader(responseStream))
                 {
-                   // string title = response.Metadata["x-amz-meta-title"]; // Assume you have "title" as medata added to the object.
+                    // string title = response.Metadata["x-amz-meta-title"]; // Assume you have "title" as medata added to the object.
                     string contentType = response.Headers["Content-Type"];
-                  
+
                     responseBody = reader.ReadToEnd(); // Now you process the response body.
                     result.Text = "SUCCESS";
                     result.Value = responseBody;
@@ -289,13 +295,51 @@ namespace TexasBar.Services
             {
                 Console.WriteLine("Error encountered ***. Message:'{0}' when writing an object", e.Message);
                 result.Text = "ERROR";
-                
+
                 result.Value = e.Message;
             }
             catch (Exception e)
             {
                 result.Text = "ERROR";
-                
+
+                result.Value = e.Message;
+            }
+
+            return result;
+        }
+
+        public GenericResponse GetPreSignedURL(string bucketName, string keyName)
+        {
+            string responseBody = "";
+            var result = new GenericResponse();
+            try
+            {
+                GetPreSignedUrlRequest request1 =
+                   new GetPreSignedUrlRequest()
+                   {
+                       BucketName = bucketName,
+                       Key = keyName,
+                       Expires = DateTime.Now.AddMinutes(2)
+                   };
+
+                string url = _client.GetPreSignedURL(request1);
+                //return Redirect(url);
+
+                responseBody = url; // Now you process the response body.
+                result.Text = "SUCCESS";
+                result.Value = responseBody;
+
+
+            }
+            catch (AmazonS3Exception e)
+            {
+                Console.WriteLine("Error encountered ***. Message:'{0}' when writing an object", e.Message);
+                result.Text = "ERROR";
+                result.Value = e.Message;
+            }
+            catch (Exception e)
+            {
+                result.Text = "ERROR";
                 result.Value = e.Message;
             }
 
@@ -409,7 +453,7 @@ namespace TexasBar.Services
 
         public async Task<GenericResponse> AddWebsiteConfigurationAsync(string bucketName, string indexDocumentSuffix, string errorDocument)
         {
-                var result = new GenericResponse();
+            var result = new GenericResponse();
             try
             {
                 // 1. Put the website configuration.
@@ -447,7 +491,7 @@ namespace TexasBar.Services
                 result.Text = e.Message;
                 result.Value = e.StackTrace;
                 result.Status = "ERROR";
-               
+
             }
             return result;
         }

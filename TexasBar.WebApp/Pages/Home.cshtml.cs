@@ -68,7 +68,7 @@ namespace TexasBar.WebApp
 
                 var folderName = href.Split('/')[0];
                 var chapterName = href.Split('/')[1].Replace(".htm", string.Empty);
-                //var newUrl = "../bookviewer/" + bookValue + "/version " + version + "/public_html/" + folderName + "/" + chapterName;
+                
                 var newUrl = "../bookviewer?bookValue=" + bookValue + "&version=" + version + "&chapterFolder=" + folderName + "&firstChapterNo=" + chapterName;
 
                 anchorHtml.SetAttributeValue("href", newUrl);

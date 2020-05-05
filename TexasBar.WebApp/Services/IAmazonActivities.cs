@@ -15,5 +15,6 @@ namespace TexasBar.Services
         Task<GenericResponse> AddWebsiteConfigurationAsync(string bucketName,string indexDocumentSuffix, string errorDocument);
         GenericResponse SaveMessageToChapters(string messagebody, string logId);
         Task<GenericResponse> ReadObjectDataAsync(string bucketName, string keyName);
+        GenericResponse GetPreSignedURL(string bucketName, string keyName);
     }
 }

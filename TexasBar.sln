@@ -12,6 +12,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{50A1594B-25D3-4607-A778-19A1DC0D77ED}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{6A00AB00-5500-4F2B-BE10-772C07AEB832}"
+	ProjectSection(SolutionItems) = preProject
+		dbscaffold.txt = dbscaffold.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TexasBar.Application", "TexasBar.Application\TexasBar.Application.csproj", "{91178348-ECEB-4D43-8992-0853E2D8B365}"
 EndProject

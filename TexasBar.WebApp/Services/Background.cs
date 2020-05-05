@@ -139,6 +139,26 @@ namespace TexasBar.Services
 
         }
 
+        public GenericResponse GetPreSignUrlTask(string bucketName, string keyName)
+        {
+            GenericResponse gr = new GenericResponse();
+
+            try
+            {
+                //var ans = _backgroungJobClient.Enqueue(() => _activity.ReceiveMessage(queueName, version, value));
+                gr =  _activity.GetPreSignedURL(bucketName, keyName);
+            }
+            catch (Exception ex)
+            {
+
+                gr.Text = ex.Message;
+                gr.Status = "ERROR";
+            }
+
+            return gr;
+
+        }
+
         public GenericResponse ConvertToSite(string bucketName, string index, string error)
         {
             GenericResponse gr = new GenericResponse();

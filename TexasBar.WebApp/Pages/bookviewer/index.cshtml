@@ -1,4 +1,5 @@
-﻿@page 
+﻿@page
+
 @model TexasBar.Razor.indexModel
 @{
     Layout = null;
@@ -56,7 +57,7 @@
         <aside class="sidebar">
             <div class="close_side"></div>
             <img class="sidebar_logo" src="../images/interface/TBO-side-logo.jpg">
-            <p><a href="../bookmarks.html">Bookmarks</a></p>
+            <p><a asp-page="/bookmarks">Bookmarks</a></p>
             <p><a href="../articles.html">CLE Articles</a></p>
             <p id="changes_doc_nav"><a asp-page="/Update">Recent Updates</a></p>
             <ul class="chapter_group_nav">
@@ -142,20 +143,75 @@
     </div>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/texas/site.js"></script>
-    <script src="~/js/texas/jquery.waypoints.min.js"></script>
-    <script src="~/js/texas/annotator.min.js"></script>
-    <script src="~/js/texas/annotator.store.min.js"></script>
-    <script src="~/js/texas/main.js"></script>
-    <script src="~/js/texas/bookmarks.js"></script>
-    <script src="~/js/texas/search.js"></script>
-    <script src="~/js/texas/changes.js"></script>
+    <script src="~/js/jquery.waypoints.min.js"></script>
+    <script src="~/js/annotator.min.js"></script>
+    <script src="~/vendor/annotator.store.min.js"></script>
+    <script src="~/js/main.js"></script>
+    @*<script src="~/js/bookmarks.js"></script>*@
+    <script src="~/js/search.js"></script>
+    <script src="~/js/changes.js"></script>
     <script>
+        window.addEventListener("load", function (event) {
+           alert("l");
+            //  var BaseUrl = $('base').attr('href');
+            var qs = (function (a) {
+                if (a == "") return {};
+                var b = {};
+                for (var i = 0; i < a.length; ++i) {
+                    var p = a[i].split('=', 2);
+                    if (p.length == 1)
+                        b[p[0]] = "";
+                    else
+                        b[p[0]] = decodeURIComponent(p[1].replace(/\+/g, " "));
+                }
+                return b;
+            })(window.location.search.substr(1).split('&'));
 
-    div.innerHTML = response;
-    var scripts = div.getElementsByTagName('script');
-    for (var ix = 0; ix < scripts.length; ix++) {
-    eval(scripts[ix].text);
-    }
+            alert("l2");
+            sessionStorage.setItem("version", qs["version"]);
+            sessionStorage.setItem("bookValue", qs["bookValue"]);
+            sessionStorage.setItem("chapterFolder", qs["chapterFolder"]);
+            sessionStorage.setItem("firstChapterNo", qs["firstChapterNo"]);
+            alert("lpp");
+
+            $('.bookmark').on('click', function () {
+                var title = "test page";
+                if ($('#a1') != null) {
+                    title = $('.current_form').text();
+
+                } else if ($('#a1') != null) {
+                    title = $('.current_form').text();
+                }
+
+
+                version = sessionStorage.getItem("version"),
+                    bookValue = sessionStorage.getItem("bookValue"),
+                    chapterFolder = sessionStorage.getItem("chapterFolder"),
+                    firstChapterNo = sessionStorage.getItem("firstChapterNo"),
+                    // title = title
+
+                    title = "test page";
+
+                    $.ajax({
+                        type: "POST",
+                        url: "?handler=bookmarks&version=" + version + "&bookValue=" + bookValue + "&chapterFolder=" + chapterFolder + "&firstChapterNo" + firstChapterNo + "&title=" + title,
+                        dataType: 'json',
+                        beforeSend: function (xhr) {xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val()); },
+                        contentType: 'application/json; charset=utf-8'
+                    }).done(function (data) {
+                        if (data.RespCode == 0) {
+                            alert(data.data);
+                            //$("#closeButton").click();
+                        } else {
+                            alert(data.data);
+                        }
+                    }).fail(function () {
+                       // FailAlert('Error', 'Network or Server outage. Please retry later');
+                    });
+
+            });
+
+        });
     </script>
 
 

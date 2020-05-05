@@ -7,14 +7,6 @@
   <ItemGroup>
     <_ContentIncludedByDefault Remove="Pages\bookviewer\index.cshtml" />
     <_ContentIncludedByDefault Remove="wwwroot\js\jquery.dataTables.min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\annotator.min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\annotator.store.min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\bookmarks.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\changes.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\jquery.min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\jquery.waypoints.min.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\main.js" />
-    <_ContentIncludedByDefault Remove="wwwroot\js\texas\search.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -861,7 +853,7 @@
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Update="wwwroot\js\site.js">
+    <Content Update="wwwroot\js\texas\site.js">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
@@ -1012,6 +1004,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\vendor\annotator.offline\annotator.offline.min.js" />
+    <None Include="wwwroot\vendor\annotator.store.min.js" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AWSSDK.Core" Version="3.3.105.8" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.3.101" />
     <PackageReference Include="AWSSDK.S3" Version="3.3.110.44" />
@@ -1029,7 +1026,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.2" />
   </ItemGroup>
 
   <ItemGroup>

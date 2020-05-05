@@ -17,6 +17,7 @@ namespace TexasBar.Persistence.Context
         }
 
         public virtual DbSet<AggregatedCounter> AggregatedCounter { get; set; }
+        public virtual DbSet<Bookmarks> Bookmarks { get; set; }
         public virtual DbSet<Chapters> Chapters { get; set; }
         public virtual DbSet<Counter> Counter { get; set; }
         public virtual DbSet<Hash> Hash { get; set; }
@@ -55,6 +56,44 @@ namespace TexasBar.Persistence.Context
                 entity.Property(e => e.Key).HasMaxLength(100);
 
                 entity.Property(e => e.ExpireAt).HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<Bookmarks>(entity =>
+            {
+                entity.Property(e => e.BookCode)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Chapter)
+                    .HasMaxLength(100)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.ChapterFolder)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Code)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.CreatedDate).HasColumnType("smalldatetime");
+
+                entity.Property(e => e.Route)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Title)
+                    .HasMaxLength(500)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.UserId)
+                    .HasColumnName("UserID")
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.Version)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
             });
 
             modelBuilder.Entity<Chapters>(entity =>
